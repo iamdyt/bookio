@@ -12,10 +12,10 @@
               <?php $this->load->view('admin/user/include/settings_menu.php'); ?>
             <?php endif ?>
 
-            <div class="col-md-10 pl-3 offset-md-1">
+            <div class="col-md-9 pl-3">
                 <form method="post" id="cahage_pass_form" action="<?php echo base_url('admin/settings/change') ?>">
                     <div class="card">
-                      <div class="card-header">Change Password</div>
+                      <div class="card-header bg-primary text-white">Change Password</div>
                         <div class="card-body">
                           <div class="row p-35">
                             <div class="col-sm-12">

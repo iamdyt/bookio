@@ -35,7 +35,7 @@ class Auth extends Home_Controller
         $data = array();
         $data['page_title'] = 'Register';
         $data['page'] = 'Auth';
-        $data['menu'] = TRUE;
+        $data['menu'] = FALSE;
         $data['countries'] = $this->admin_model->select_asc('country');
         $data['categories'] = $this->admin_model->select_by_status('categories');
         $data['dialing_codes'] = $this->common_model->select_asc('dialing_codes');

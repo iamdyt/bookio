@@ -46,7 +46,8 @@
 <!-- bs-custom-file-input -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- Summernote -->
-
+<script src="<?php echo base_url() ?>assets/js/tinymce/jquery.tinymce.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
 
 <!-- SYN-Started -->
 <script src="<?php echo base_url() ?>assets/admin/js/bootstrap.bundle.min.js"></script>
@@ -120,6 +121,12 @@
 		}
 
 	}
+	tinymce.init({
+    selector: 'textarea#summernote',
+    menubar: false
+  });
 </script>
 </body>
 </html>
+
+

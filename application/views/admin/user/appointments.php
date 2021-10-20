@@ -1,6 +1,6 @@
 
-<div class="content-wrapper">
-  <div class="content pt-4 mb-4">
+<div class="page-wrapper">
+  <div class="page-content pt-4 mb-4">
     <div class="container-fluid">
       <div class="row box-dash-areas">
         
@@ -85,11 +85,11 @@
       <div class="row">
         <div class="col-md-6">
             <div class="card add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
-              <div class="card-header with-border">
+              <div class="card-header bg-primary text-white" style="background:#8833FF;">
                 <?php if (isset($page_title) && $page_title == "Edit"): ?>
-                  <h3 class="card-title pt-2"><?php echo trans('edit') ?></h3>
+                  <h3 class="card-title pt-2 text-white"><?php echo trans('edit') ?></h3>
                 <?php else: ?>
-                  <h3 class="card-title pt-2"><?php echo trans('new-appointment') ?> </h3>
+                  <h3 class="card-title pt-2 text-white"><?php echo trans('new-appointment') ?> </h3>
                 <?php endif; ?>
 
                 <div class="card-tools pull-right">
@@ -218,11 +218,11 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="card list_area">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <?php if (isset($page_title) && $page_title == "Edit"): ?>
-                    <h3 class="card-title pt-2">Edit <a href="<?php echo base_url('admin/pages') ?>" class="pull-right btn btn-secondary btn-sm"><i class="fa fa-angle-left"></i> <?php echo trans('back') ?></a></h3>
+                    <h3 class="card-title pt-2 text-white">Edit <a href="<?php echo base_url('admin/pages') ?>" class="pull-right btn btn-secondary btn-sm"><i class="fa fa-angle-left"></i> <?php echo trans('back') ?></a></h3>
                   <?php else: ?>
-                    <h3 class="card-title pt-2"><?php echo trans('appointments') ?></h3>
+                    <h3 class="card-title pt-2 text-white "><?php echo trans('appointments') ?></h3>
                   <?php endif; ?>
 
                   <div class="card-tools pull-right d-flex justify-content-between">
@@ -239,8 +239,8 @@
                     </div>
 
                      <div>
-                      <a href="#" class="pull-right btn btn-outline-primary btn-sm add_btn mr-1"><i class="fa fa-plus"></i> <span class="d-none d-md-inline"><?php echo trans('new-appointment') ?></span></a>
-                      <a href="#" class="filter-action pull-right btn btn-outline-primary btn-sm"><i class="fas fa-filter"></i></a>
+                      <a href="#" class="pull-right btn btn-outline-white bg-white btn-sm add_btn mr-1"><i class="fa fa-plus"></i> <span class="d-none d-md-inline"><?php echo trans('new-appointment') ?></span></a>
+                      <a href="#" class="filter-action pull-right btn btn-white btn-sm"><i class="fas fa-filter"></i></a>
                     </div>
 
                   </div>
