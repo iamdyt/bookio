@@ -41,7 +41,9 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/lightbox.css">
+    <link href="<?php echo base_url() ?>assets/admin/css/icons.css" rel="stylesheet">
     <!-- Template CSS -->
+    <!-- <link href="<?php echo base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/front/css/template.min.css?var=<?= settings()->version ?>&time=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/aos.css">
     <!-- Select2 -->

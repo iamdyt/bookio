@@ -5,7 +5,7 @@
 
 
     <div class="box add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
-      <div class="box-header with-border">
+      <div class="box-header with-border bg-primary text-white">
         <?php if (isset($page_title) && $page_title == "Edit"): ?>
           <h3 class="box-title">Edit Feature</h3>
         <?php else: ?>
@@ -91,7 +91,7 @@
     <?php if (isset($page_title) && $page_title != "Edit"): ?>
 
     <div class="box list_area">
-      <div class="box-header with-border">
+      <div class="box-header with-border bg-primary text-white">
         <?php if (isset($page_title) && $page_title == "Edit"): ?>
           <h3 class="box-title">Edit feature <a href="<?php echo base_url('admin/feature') ?>" class="pull-right btn btn-primary btn-sm"><i class="fa fa-angle-left"></i> Back</a></h3>
         <?php else: ?>

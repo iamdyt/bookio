@@ -13,7 +13,7 @@
 
             <!-- add area -->
             <div class="card card  add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
-              <div class="card-header">
+              <div class="card-header bg-primary text-white">
                 <?php if (isset($page_title) && $page_title == "Edit"): ?>
                   <span class="card-title pt-2"><?php echo trans('edit') ?></span>
                 <?php else: ?>
@@ -121,7 +121,7 @@
             <!-- view area -->
             <?php if (isset($page_title) && $page_title != "Edit"): ?>
               <div class="card list_area">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <?php if (isset($page_title) && $page_title == "Edit"): ?>
                     <span class="card-title pt-2"><?php echo trans('edit') ?> <a href="<?php echo base_url('admin/blog') ?>" class="btn btn-primary btn-sm"><i class="fa fa-angle-left"></i> Back</a></span>
                   <?php else: ?>

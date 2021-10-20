@@ -155,6 +155,14 @@
         </script>
     <?php endif ?>
 
+    <script>
+        function showHide(){
+            $('#logini').addClass('d-none')
+            $('#lost-form').removeClass('d-none')
+            $('#lost-form').addClass('d-block')
+        }
+    </script>
+
 </body>
 
 

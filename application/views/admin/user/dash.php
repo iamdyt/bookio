@@ -1,73 +1,75 @@
 <div class="page-wrapper">
  
     <div class="page-content pt-4 mb-4">
-      <div class="container">
-        <div class="row box-dash-areas">
-          
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-primary-soft" data-aos="fade-up" data-aos-delay="150">
-              <span class="info-box-icon bg-primary"><i class="fas fa-calendar-alt"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-number"><?php echo get_count_by_user('appointments') ?></span>
-                <span class="info-box-text"><?php echo trans('appointments') ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
 
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-danger-soft" data-aos="fade-up" data-aos-delay="200">
-              <span class="info-box-icon bg-danger"><i class="fas fa-users"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-number"><?php echo get_count_by_user('staffs') ?></span>
-                <span class="info-box-text"><?php echo trans('staffs') ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+			    <div class="col">
+						<div class="card radius-10 overflow-hidden">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total <?php echo trans('appointments') ?></p>
+										<h5 class="mb-0"><?php echo get_count_by_user('appointments') ?></h5>
+									</div>
+									<div class="ms-auto"><i class='fas fa-sticky-note font-30'></i>
+									</div>
+								</div>
+							</div>
+							<div class="" id="chart1"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card radius-10 overflow-hidden">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total <?php echo trans('staffs') ?></p>
+										<h5 class="mb-0"><?php echo get_count_by_user('staffs') ?></h5>
+									</div>
+									<div class="ms-auto"> <i class='bx bx-group font-30'></i>
+									</div>
+								</div>
+							</div>
+							<div class="" id="chart2"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card radius-10 overflow-hidden">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total <?php echo trans('services') ?> </p>
+										<h5 class="mb-0"><?php echo get_count_by_user('services') ?></h5>
+									</div>
+									<div class="ms-auto">	<i class='fas fa-tags font-30'></i>
+									</div>
+								</div>
+							</div>
+							<div class="" id="chart3"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card radius-10 overflow-hidden">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total <?php echo trans('customers') ?></p>
+										<h5 class="mb-0"><?php echo get_count_by_user('customers') ?></h5>
+									</div>
+									<div class="ms-auto">	<i class='bx bx-group font-30'></i>
+									</div>
+								</div>
+							</div>
+							<div class="" id="chart4"></div>
+						</div>
+					</div>
+			  </div> 
 
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success-soft" data-aos="fade-up" data-aos-delay="250">
-              <span class="info-box-icon bg-success"><i class="fas fa-stream"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-number"><?php echo get_count_by_user('services') ?></span>
-                <span class="info-box-text"><?php echo trans('services') ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info-soft" data-aos="fade-up" data-aos-delay="300">
-              <span class="info-box-icon bg-info"><i class="fas fa-user-friends"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-number"><?php echo get_count_by_user('customers') ?></span>
-                <span class="info-box-text"><?php echo trans('customers') ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="card" data-aos="fade-up">
-              <div class="card-header">
-                <h5 class="mb-0"><?php echo trans('last-12-months-income') ?></h5>
+            <div class="card" >
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 text-white"><?php echo trans('last-12-months-income') ?></h5>
               </div>
               
               <div class="card-body">
@@ -137,8 +139,5 @@
           </div>
           
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+  
   </div>

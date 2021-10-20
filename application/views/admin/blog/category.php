@@ -13,7 +13,7 @@
           <div class="col-md-8 offset-md-2">
 
             <div class="card add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
-              <div class="card-header with-border">
+              <div class="card-header bg-primary text-white with-border">
                 <?php if (isset($page_title) && $page_title == "Edit"): ?>
                   <span class="card-title pt-2"><?php echo trans('edit') ?></span>
                 <?php else: ?>
@@ -58,7 +58,7 @@
 
             <?php if (isset($page_title) && $page_title != "Edit"): ?>
               <div class="card list_area">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <?php if (isset($page_title) && $page_title == "Edit"): ?>
                     <span class="card-title pt-2">Edit Category <a href="<?php echo base_url('admin/blog_category') ?>" class="pull-right btn btn-sm btn-primary btn-sm"><i class="fa fa-angle-left"></i> <?php echo trans('back') ?></a></span>
                   <?php else: ?>

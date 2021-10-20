@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <span class="card-title"><?php echo trans('users') ?></span>
                     <div class="card-tools">
                       <div class="filter-bars d-inline float-end">

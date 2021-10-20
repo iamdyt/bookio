@@ -47,7 +47,7 @@
         var chart = new ApexCharts(document.querySelector("#adminIncomeChart"), options);
         chart.render();
 
-
+        // pie-radialbar chart
         var options = {
           series: [
               
@@ -84,29 +84,26 @@
   <?php if(is_user()): ?>
     var incomeData = <?= $income_data; ?>;
     var incomeAxis = <?= $income_axis; ?>;
-
-    Highcharts.chart('userIncomeChart', {
-        chart: {
-            type: 'areaspline'
+    var options = {
+          series: [{
+            name: '<?= trans('income') ?>',
+            data: incomeData,
+        }],
+          chart: {
+          height: 350,
+          type: 'area'
         },
-        title: {
-            text: ''
+        dataLabels: {
+          enabled: false
         },
-        legend: {
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'top',
-            x: 150,
-            y: 100,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor:
-                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+        stroke: {
+          curve: 'smooth'
         },
-        xAxis: {
-            categories: incomeAxis
+        xaxis: {
+          type: 'datetime',
+          categories: incomeAxis
         },
-        yAxis: {
+        yaxis: {
             title: {
                 text: ''
             },
@@ -115,28 +112,16 @@
             },
         },
         tooltip: {
-            headerFormat: '<span class="fs-14">{series.name}</span><br>',
-            pointFormat: '<span>{point.name}</span> <b><?php echo html_escape($currency) ?>{point.y}</b><br/>'
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
         },
-        credits: {
-            enabled: false
-        },
-        plotOptions: {
-            areaspline: {
-                fillOpacity: 0.2,
-                dataLabels: {
-                    enabled: true,
-                    format: '<?php echo html_escape($currency) ?>{point.y}'
-                }
-            }
-        },
-        series: [{
-            name: '<?php echo trans('income') ?>',
-            data: incomeData,
-            color: 'rgb(35, 199, 112)'
-        }]
-    });
+        };
 
+        var chart = new ApexCharts(document.querySelector("#userIncomeChart"), options);
+        chart.render();
+
+    
 
   <?php endif; ?>
 

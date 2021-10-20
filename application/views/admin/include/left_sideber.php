@@ -1,14 +1,14 @@
   		<!--sidebar wrapper -->
-    <div class="wrapper">
+    <div class="wrapper" >
           <div class="sidebar-wrapper" data-simplebar="true">
-			<div class="sidebar-header">
+			<div class="sidebar-header" onclick="mobileToggle()">
 				<div>
           <!-- <img src="<?php echo base_url(settings()->favicon) ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"> -->
 				</div>
 				<div>
 					<h4 class="logo-text"><?php echo html_escape(settings()->site_name) ?></h4>
 				</div>
-				<div class="toggle-icon ms-auto" onclick="mobileToggle()"><i class='bx bx-first-page'></i>
+				<div class="toggle-icon ms-auto" ><i class='bx bx-first-page'></i>
 				</div>
 			</div>
       

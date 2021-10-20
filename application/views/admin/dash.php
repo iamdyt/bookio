@@ -95,10 +95,6 @@
 							<div class="mt-4" id="chart6"></div>
               <div id="packagePie"></div>
 							<div class="d-flex align-items-center">
-
-									<div class="ms-auto d-flex align-items-center border radius-10 px-2">
-									  <i class='bx bxs-checkbox font-22 me-1 text-primary'></i><span>Marketing Sales</span>
-									</div>
 							  </div>
 						</div>
 					</div>

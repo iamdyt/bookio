@@ -2,11 +2,11 @@
   <!-- Main content -->
   <section class="page-content container-fluid pt-4 mb-4">
     <div class="card list_area">
-      <div class="card-header with-border pl-2">
+      <div class="card-header bg-primary text-white with-border pl-2">
         <div class="card-title p-0"><?php echo trans('transactions') ?> </div>
       </div>
     
-      <div class="col-md-10"> 
+      <div class="col-md-12"> 
         <div class="card-body table-responsive ">
             <table class="table table-hover <?php if(count($payments) > 10){echo "datatable";} ?> cushover">
                 <thead style="width:100%;">
@@ -40,14 +40,14 @@
                             <?php echo ucfirst($payment->user_name); ?><br>
                             <?php echo ucfirst($payment->email); ?>
                           </td>
-                          <td><span class="badge badge-primary brd-20"><?php echo html_escape($payment->package_name); ?></span></td>
+                          <td><span class="badge bg-primary brd-20"><?php echo html_escape($payment->package_name); ?></span></td>
                           <td><?php echo ucfirst($payment->billing_type); ?></td>
                           <td><?php echo html_escape(settings()->currency_symbol) ?><?php echo html_escape($payment->amount); ?></td>
                           <td>
                             <?php if ($payment->status == 'verified'): ?>
-                              <span class="badge badge-success-soft brd-20"><i class="fas fa-check-circle"></i> <?php echo ucfirst($payment->status); ?></span>
+                              <span class="badge bg-success brd-20"><i class="fas fa-check-circle"></i> <?php echo ucfirst($payment->status); ?></span>
                             <?php else: ?>
-                              <span class="badge badge-danger-soft brd-20"><?php echo ucfirst($payment->status); ?></span>
+                              <span class="badge bg-danger brd-20"><?php echo ucfirst($payment->status); ?></span>
                             <?php endif ?>
                           </td>
                           <td><?php echo my_date_show($payment->created_at); ?> </td>

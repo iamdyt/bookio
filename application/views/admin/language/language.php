@@ -13,7 +13,7 @@
 
             <?php if (isset($page_title) && $page_title != "Edit"): ?>
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                     <div class="card-title"><?php echo trans('set-default-language') ?> </div>
                 </div>
 
@@ -46,7 +46,7 @@
 
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <?php if (isset($page_title) && $page_title == "Edit"): ?>
                     <div class="card-title"><?php echo trans('edit-language') ?> <a href="<?php echo base_url('admin/language') ?>" class="pull-right btn btn-secondary btn-sm"><i class="fa fa-angle-left"></i> <?php echo trans('back') ?></a></div>
                   <?php else: ?>
@@ -106,7 +106,7 @@
 
             <div class="col-md-8 list_area">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-white">
                         <div class="card-title"> <?php echo trans('manage-language') ?> </div>
                     </div>
                     <div class="card-body p-0">
@@ -147,9 +147,6 @@
                                                 <span class="badge bg-danger">Inactive</span>
                                               <?php endif ?>
                                             </td>
-
-                                    
-
                                             <td class="actions">
 
                                                 <div class="btn-group">

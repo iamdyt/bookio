@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-md-9 offset-md-1">
             <div class="card add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
-              <div class="card-header">
+              <div class="card-header bg-primary text-white">
                 <?php if (isset($page_title) && $page_title == "Edit"): ?>
                   <span class="card-title pt-2"><?php echo trans('edit') ?></span>
                 <?php else: ?>
@@ -65,7 +65,7 @@
 
             <?php if (isset($page_title) && $page_title != "Edit"): ?>
               <div class="card list_area">
-                <div class="card-header">
+                <div class="card-header bg-primary text-white">
                   <?php if (isset($page_title) && $page_title == "Edit"): ?>
                     <span class="card-title pt-2">Edit page <a href="<?php echo base_url('admin/pages') ?>" class="pull-right btn btn-secondary btn-sm"><i class="fa fa-angle-left"></i> <?php echo trans('back') ?></a></span>
                   <?php else: ?>

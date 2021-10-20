@@ -12,8 +12,8 @@
           <div class="col-md-10 offset-md-1">
 
             <div class="card list_area">
-              <div class="card-header">
-                  <h3 class="card-title pt-2"><?php echo trans('contacts') ?> </h3>
+              <div class="card-header bg-primary text-white">
+                  <h3 class="card-title text-white pt-2"><?php echo trans('contacts') ?> </h3>
               </div>
 
               <div class="card-body table-responsive p-0">
