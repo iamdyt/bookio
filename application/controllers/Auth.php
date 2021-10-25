@@ -43,6 +43,55 @@ class Auth extends Home_Controller
         $this->load->view('index', $data);
     }
 
+    // standard reg
+    public function standardreg()
+    {   
+        if (empty($_GET['trial'])) {
+            $this->session->unset_userdata('trial');
+        }else{
+            $this->session->set_userdata('trial', 'trial');
+        }
+
+        if (!empty($_GET['expire'])) {
+            $this->expire_logs($_GET['expire']);
+        }
+        
+        $data = array();
+        $data['page_title'] = 'Standard-Register';
+        $data['page'] = 'Auth';
+        $data['menu'] = FALSE;
+        $data['countries'] = $this->admin_model->select_asc('country');
+        $data['categories'] = $this->admin_model->select_by_status('categories');
+        $data['dialing_codes'] = $this->common_model->select_asc('dialing_codes');
+        $data['main_content'] = $this->load->view('standard_reg', $data, TRUE);
+        $this->load->view('index', $data);
+    }
+
+    // Premium Reg
+
+    public function premiumreg()
+    {   
+        if (empty($_GET['trial'])) {
+            $this->session->unset_userdata('trial');
+        }else{
+            $this->session->set_userdata('trial', 'trial');
+        }
+
+        if (!empty($_GET['expire'])) {
+            $this->expire_logs($_GET['expire']);
+        }
+        
+        $data = array();
+        $data['page_title'] = 'Premium-Register';
+        $data['page'] = 'Auth';
+        $data['menu'] = FALSE;
+        $data['countries'] = $this->admin_model->select_asc('country');
+        $data['categories'] = $this->admin_model->select_by_status('categories');
+        $data['dialing_codes'] = $this->common_model->select_asc('dialing_codes');
+        $data['main_content'] = $this->load->view('premium_reg', $data, TRUE);
+        $this->load->view('index', $data);
+    }
+
     // Login
     public function verify()
     {   
@@ -139,7 +188,11 @@ class Auth extends Home_Controller
                 // success notification
                 if ($user->role == 'admin') {
                     $url = base_url('admin/dashboard');
-                }else if ($user->role == 'user') {
+                }
+                else if($user->role == 'agent'){
+                    $url = base_url('admin/dashboard');
+                }
+                else if ($user->role == 'user') {
                     $url = base_url('admin/dashboard/user');
                 }else if ($user->role == 'customer') {
                     $url = base_url('customer/appointments');

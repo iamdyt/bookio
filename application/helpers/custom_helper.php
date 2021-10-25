@@ -11,6 +11,17 @@
 	    }
 	}
 
+		//check agent
+		if (!function_exists('is_agent')) 
+		{
+			function is_agent()
+			{
+				// Get a reference to the controller object
+				$ci =& get_instance();
+				return $ci->auth_model->is_agent();
+			}
+		}
+
 	//check editor
 	if (!function_exists('is_user')) 
 	{

@@ -71,6 +71,16 @@ class Common_model extends CI_Model {
         return $query;
     }
 
+    function select_by_role($table, $role)
+    {
+        $this->db->select();
+        $this->db->from($table);
+        $this->db->where('role', $role);
+        $this->db->order_by('id','DESC');
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    }
     // select function
     function select($table)
     {
@@ -115,6 +125,15 @@ class Common_model extends CI_Model {
         return $query;
     } 
 
+    function select_optional($id,$table)
+    {
+        $this->db->select();
+        $this->db->from($table);
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    } 
     // select by id
     function get_by_id($id,$table)
     {
@@ -978,6 +997,11 @@ class Common_model extends CI_Model {
         return;
     }
 
+    // delete agents
+    function delete_agent($agent_id, $table){
+        $this->db->delete($table, array('id' => $agent_id));
+        return;
+    }
 
     //get category posts
     function get_category_posts($total, $limit, $offset, $id, $user_id)

@@ -125,6 +125,23 @@ class Auth_model extends CI_Model {
         }
     }
 
+    // is_agent
+    public function is_agent()
+    {   
+        //get_header_info();
+        //check logged in
+        if (!$this->is_logged_in()) {
+            return false;
+        }
+
+        //check role
+        if ($this->session->userdata('role') == 'agent') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     //is staff
     public function is_staff()

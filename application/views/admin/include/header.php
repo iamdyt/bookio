@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="description" content="">
-  <meta name="author" content="Codericks">
+  <meta name="author" content="">
   <link rel="icon" href="<?php echo base_url($settings->favicon) ?>">
   
   <title><?php echo html_escape($settings->site_name); ?> &bull; <?php if(isset($this->chamber->name)){echo html_escape($this->chamber->name).' &bull;';} ?> <?php if(isset($page_title)){echo html_escape($page_title);}else{echo "Dashboard";} ?></title>
@@ -28,6 +28,7 @@
 	<!-- Bootstrap CSS -->
 	<link href="<?php echo base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 	<link href="<?php echo base_url() ?>assets/admin/css/app.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>assets/admin/css/icons.css" rel="stylesheet">
 	<!-- Theme Style CSS -->
@@ -40,7 +41,10 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/line-icons/lineicons.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/datatable/css/dataTables.bootstrap5.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
   <!-- Google Font: DM Sans -->
   <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,400i,700" rel="stylesheet">
@@ -116,8 +120,8 @@
             <!-- left-end -->
 					 </div>
 
-					<div class="user-box dropdown  float-right">
-						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<div class="user-box dropdown  ">
+						<a class="d-flex  float-right nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <?php if (user()->role == 'admin'): ?>
                   <?php else: ?>
                       <img src="<?php echo base_url(user()->thumb) ?>" alt="User Avatar" width="50" class="mr-3 img-circle">

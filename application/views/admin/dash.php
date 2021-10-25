@@ -102,7 +102,8 @@
 
 	</div><!--end row-->
 
-  <!-- latest user and net income -->
+  
+	<!-- latest user and net income -->
   <div class="row mx-2">
     <div class="col-md-6">
       <div class="card">

@@ -18,11 +18,12 @@
 
 <!-- jQuery -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="<?php echo base_url() ?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
-<script src="<?php echo base_url() ?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url() ?>assets/admin/plugins/datatable/js/dataTables.bootstrap5.js"></script> -->
 <!-- Admin App -->
 <script src="<?php echo base_url() ?>assets/admin/js/admin.js?var=<?= settings()->version ?>&time=<?=time();?>"></script>
 
@@ -52,7 +53,7 @@
 <!-- SYN-Started -->
 <script src="<?php echo base_url() ?>assets/admin/js/bootstrap.bundle.min.js"></script>
 	<!--plugins-->
-	<script src="<?php echo base_url() ?>assets/admin/js/jquery.min.js"></script>
+	<!-- <script src="<?php echo base_url() ?>assets/admin/js/jquery.min.js"></script> -->
 	<script src="<?php echo base_url() ?>assets/admin/plugins/simplebar/js/simplebar.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/admin/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
@@ -122,9 +123,16 @@
 
 	}
 	tinymce.init({
-    selector: 'textarea#summernote',
-    menubar: false
+    selector: '#summernote',
+    menubar: true
   });
+
+
+</script>
+<script>
+	$(document).ready( function () {
+    $('#ditable').DataTable();
+} );
 </script>
 </body>
 </html>

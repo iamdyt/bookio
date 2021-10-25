@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+include './Users.php';
 
 class Dashboard extends Home_Controller {
 
@@ -11,33 +12,38 @@ class Dashboard extends Home_Controller {
     public function index()
     {
 
-        if (!is_admin()) {
+        if (!is_admin() && !is_agent() ) {
             redirect(base_url());
         }
 
-        $data = array();
-        $data['page'] = 'Dashboard';
-        $data['page_title'] = 'Dashboard';
-        $data['currency'] = settings()->currency_symbol;
-        for ($i = 1; $i <= 13; $i++) {
-            $months[] = date("Y-m", strtotime( date('Y-m-01')." -$i months"));
+        if (is_admin()){ 
+            $data = array();
+            $data['page'] = 'Dashboard';
+            $data['page_title'] = 'Dashboard';
+            $data['currency'] = settings()->currency_symbol;
+            for ($i = 1; $i <= 13; $i++) {
+                $months[] = date("Y-m", strtotime( date('Y-m-01')." -$i months"));
+            }
+
+            for ($i = 0; $i <= 11; $i++) {
+                $income = $this->admin_model->get_admin_income_by_date(date("Y-m", strtotime( date('Y-m-01')." -$i months")));
+                $months[] = array("date" => month_show(date("Y-m", strtotime( date('Y-m-01')." -$i months"))));
+                $incomes[] = array("total" => $income);
+            }
+
+            $data['income_axis'] = json_encode(array_column($months, 'date'),JSON_NUMERIC_CHECK);
+            $income_data = json_encode(array_column($incomes, 'total'),JSON_NUMERIC_CHECK);
+            $income_data = str_replace('null', '0', $income_data);
+            $data['income_data'] = $income_data;
+            $data['net_income'] = $this->admin_model->get_admin_income_by_year();
+            $data['upackages'] = $this->admin_model->get_users_packages();
+            $data['users'] = $this->admin_model->get_latest_users();
+            $data['main_content'] = $this->load->view('admin/dash', $data, TRUE);
+            $this->load->view('admin/index', $data);
+        }else{
+            redirect(base_url('admin/users'));
         }
 
-        for ($i = 0; $i <= 11; $i++) {
-            $income = $this->admin_model->get_admin_income_by_date(date("Y-m", strtotime( date('Y-m-01')." -$i months")));
-            $months[] = array("date" => month_show(date("Y-m", strtotime( date('Y-m-01')." -$i months"))));
-            $incomes[] = array("total" => $income);
-        }
-
-        $data['income_axis'] = json_encode(array_column($months, 'date'),JSON_NUMERIC_CHECK);
-        $income_data = json_encode(array_column($incomes, 'total'),JSON_NUMERIC_CHECK);
-        $income_data = str_replace('null', '0', $income_data);
-        $data['income_data'] = $income_data;
-        $data['net_income'] = $this->admin_model->get_admin_income_by_year();
-        $data['upackages'] = $this->admin_model->get_users_packages();
-        $data['users'] = $this->admin_model->get_latest_users();
-        $data['main_content'] = $this->load->view('admin/dash', $data, TRUE);
-        $this->load->view('admin/index', $data);
     }
 
     //user dashboard

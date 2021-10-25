@@ -5,8 +5,8 @@
     $paypal_id= html_escape($settings->paypal_email);
 ?>
 
-<div class="content-wrapper">
-    <div class="content">
+<div class="page-wrapper">
+    <div class="page-content">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-6 m-auto">

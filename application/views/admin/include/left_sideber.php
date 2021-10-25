@@ -11,7 +11,6 @@
 				<div class="toggle-icon ms-auto" ><i class='bx bx-first-page'></i>
 				</div>
 			</div>
-      
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
       <?php if (is_admin()): ?>
@@ -76,11 +75,16 @@
           </li>
 
           <li class="">
-            <a class=" <?php if(isset($page_title) && $page_title == "Users"){echo "active";} ?>" href="<?php echo base_url('admin/users') ?>">
-              <div class="parent-icon"><i class="nav-icon lni lni-users"></i> </div><div class="menu-title"><?php echo trans('users') ?></div>
+            <a class=" <?php if(isset($page_title) && $page_title == "Users"){echo "active";} ?>" href="<?php echo base_url('admin/agents/all') ?>">
+              <div class="parent-icon"><i class="nav-icon lni lni-users"></i> </div><div class="menu-title">Agents</div>
             </a>
           </li>
 
+          <li class="">
+            <a class=" <?php if(isset($page_title) && $page_title == "Page"){echo "active";} ?>" href="<?php echo base_url('admin/pages/all') ?>">
+              <div class="parent-icon"><i class="nav-icon lni lni-files"></i> </div><div class="menu-title">Page Creator</div>
+            </a>
+          </li>
 
           <li class="">
             <a class="<?php if(isset($page_title) && $page_title == "Site_features"){echo "active";} ?>" href="<?php echo base_url('admin/site_features') ?>">
@@ -113,7 +117,16 @@
             </a>
           </li>
 
+        <!-- Visible only for Agents -->
         <?php endif; ?>
+
+        <?php if (is_agent()):  ?>
+          <li class="">
+              <a class=" <?php if(isset($page_title) && $page_title == "Users"){echo "active";} ?>" href="<?php echo base_url('admin/users') ?>">
+                <div class="parent-icon"><i class="nav-icon lni lni-users"></i> </div><div class="menu-title"><?php echo trans('users') ?></div>
+              </a>
+            </li>
+          <?php endif; ?>
 
         <?php if (is_user()): ?>
 

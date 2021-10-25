@@ -100,6 +100,79 @@ class Pages extends Home_Controller {
         echo json_encode(array('st' => 1));
     }
 
+    //*************** this is for page-module creator different from the normal page *********************
+
+    public function all(){
+        $data = array();
+        $data['page_title'] = 'All Pages';     
+        $data['page'] = 'Pages';
+        $data['view_link'] = base_url('admin/pages/single/');
+        $data['pages'] = $this->common_model->get_all('page_module');
+        $data['main_content'] = $this->load->view('page_module/all', $data,  TRUE);
+        $this->load->view('admin/index', $data);
+    }
+
+    public function create(){
+        $data = array();
+        $data['page_title'] = 'Create Page';    
+        $data['page'] = 'Pages';
+        $data['main_content'] = $this->load->view('page_module/create', $data,  TRUE);
+        $this->load->view('admin/index', $data);
+        
+    }
+
+    public function save_page(){
+        $title = $this->input->post('title', true);
+        $link = $this->input->post('link', true);
+        $content = $this->input->post('content', true);
+        $data = [
+            'title' => $title,
+            'link' => $link,
+            'content' => $content
+        ];
+        $data = $this->security->xss_clean($data);
+        $this->common_model->insert($data, 'page_module');
+        redirect(base_url('admin/pages/all'));
+    }
+
+    public function single($id){
+        $data = array();
+        $data['page_title'] = 'Single Page';    
+        $data['page'] = 'Page';
+        $data['single'] = $this->common_model->select_optional($id, 'page_module');
+        $data['main_content'] = $this->load->view('page_module/single', $data,  TRUE);
+        $this->load->view('admin/index', $data);
+    }
+
+    public function modify($id){
+        $data = array();
+        $data['page_title'] = 'Edit Page';    
+        $data['page'] = 'Page';
+        $data['single'] = $this->common_model->select_optional($id, 'page_module');
+        $data['main_content'] = $this->load->view('page_module/edit', $data,  TRUE);
+        $this->load->view('admin/index', $data);
+    }
+
+    public function affect(){
+        $page_id = $this->input->post('page_id');
+        $title = $this->input->post('title', true);
+        $link = $this->input->post('link', true);
+        $content = $this->input->post('content', true);
+        $data = [
+            'title' => $title,
+            'link' => $link,
+            'content' => $content
+        ];
+        $this->common_model->update($data, $page_id, 'page_module');
+        redirect(base_url('admin/pages/all'));
+    }
+
+    public function remove($id){
+        $this->db->delete('page_module', ['id'=>$id]);
+        redirect($_SERVER['HTTP_REFERER']);       
+    }
+    
+
 }
 	
 

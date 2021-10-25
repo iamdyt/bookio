@@ -1,5 +1,5 @@
-<div class="content-wrapper">
-  <section class="content">
+<div class="page-wrapper">
+  <section class="page-content">
     <div class="container mb-20">
         <div class="row">
           <div class="text-center m-auto col-md-6">

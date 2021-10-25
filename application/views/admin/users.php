@@ -9,18 +9,24 @@
 
         <div class="row">
           <div class="col-lg-12">
+            <!-- New user/Business -->
+            
+            <div class="my-4">
+              <a href="<?= base_url('admin/users/createbiz') ?>" class="btn btn-primary shadow-sm"> New User/Business &plus;</a>
+            </div>
+
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                  <span class="card-title"><?php echo trans('users') ?></span>
+                  <span class="card-title"><?php echo trans('users') ?> and Business Management</span>
                     <div class="card-tools">
                       <div class="filter-bars d-inline float-end">
-                        <a class="filter-action btn text-primary"> <i class="fas fa-filter"></i></a>
+                        <a class="filter-action btn text-white"> <i class="fas fa-filter"></i></a>
                       </div>
                     </div>
                 </div>
 
                 <div class="filter_popup showFilter">
-                    <p class="leads mb-3"><?php echo trans('filters') ?></p>
+                    <p class="leads mb-3 text-white"><?php echo trans('filters') ?></p>
 
                     <form action="<?php echo base_url('admin/users/all_users/all') ?>" class="sort_form" method="get">
                       <div class="row">
@@ -174,7 +180,7 @@
                                               <?php else: ?>
                                                   <a href="<?php echo base_url('admin/users/status_action/1/'.html_escape($user->id));?>" class="dropdown-item"><i class="lnib lni-checkmark-circle mr-1"></i>  <?php echo trans('activate') ?></a>
                                               <?php endif ?>
-                                              
+                                             
                                               <a data-val="User" data-id="<?php echo html_escape($user->id); ?>" href="<?php echo base_url('admin/users/delete/'.html_escape($user->id));?>" class="dropdown-item delete_item"><i class="lni lni-trash-can mr-1"></i> <?php echo trans('delete') ?></a>
                                             </div>
                                         </div>
