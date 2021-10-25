@@ -8,7 +8,7 @@
 				<div>
 					<h4 class="logo-text"><?php echo html_escape(settings()->site_name) ?></h4>
 				</div>
-				<div class="toggle-icon ms-auto" ><i class='bx bx-first-page'></i>
+				<div class="toggle-icon ms-auto" ><i class='fa fa-bars'></i>
 				</div>
 			</div>
 			<!--navigation-->
