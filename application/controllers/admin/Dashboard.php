@@ -38,6 +38,7 @@ class Dashboard extends Home_Controller {
             $data['net_income'] = $this->admin_model->get_admin_income_by_year();
             $data['upackages'] = $this->admin_model->get_users_packages();
             $data['users'] = $this->admin_model->get_latest_users();
+      
             $data['main_content'] = $this->load->view('admin/dash', $data, TRUE);
             $this->load->view('admin/index', $data);
         }else{

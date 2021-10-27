@@ -6,7 +6,7 @@ class Pages extends Home_Controller {
     {
         parent::__construct();
         //check auth
-        if (!is_admin() && !is_user()) {
+        if (!is_admin() && !is_user() && !is_agent()) {
             redirect(base_url());
         }
     }
@@ -125,10 +125,12 @@ class Pages extends Home_Controller {
         $title = $this->input->post('title', true);
         $link = $this->input->post('link', true);
         $content = $this->input->post('content', true);
+        $location = $this->input->post('location', true);
         $data = [
             'title' => $title,
             'link' => $link,
-            'content' => $content
+            'content' => $content,
+            'location' => $location
         ];
         $data = $this->security->xss_clean($data);
         $this->common_model->insert($data, 'page_module');
@@ -158,10 +160,12 @@ class Pages extends Home_Controller {
         $title = $this->input->post('title', true);
         $link = $this->input->post('link', true);
         $content = $this->input->post('content', true);
+        $location = $this->input->post('location', true);
         $data = [
             'title' => $title,
             'link' => $link,
-            'content' => $content
+            'content' => $content,
+            'location' => $location
         ];
         $this->common_model->update($data, $page_id, 'page_module');
         redirect(base_url('admin/pages/all'));

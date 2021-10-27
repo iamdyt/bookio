@@ -22,6 +22,22 @@
 			}
 		}
 
+		// Pages with assigned to agent dashboard
+		if(!function_exists('select_pages_location')){
+			function select_pages_location(){
+				$ci =& get_instance();
+				return $ci->common_model->select_pages_location('agent');
+			}
+		}
+
+		//pages assigned to user's dashboard
+		if(!function_exists('select_pages_location_user')){
+			function select_pages_location_user(){
+				$ci =& get_instance();
+				return $ci->common_model->select_pages_location('user');
+			}
+		}
+
 	//check editor
 	if (!function_exists('is_user')) 
 	{

@@ -1151,7 +1151,7 @@ class Admin_model extends CI_Model {
     }
 
     // get all users
-    function get_all_users($total, $limit, $offset, $type){
+    function get_all_users($total, $limit, $offset, $type,$agent_id){
         $this->db->select('u.*, p.status as payment_status,p.package_id, k.name as package, b.name as currency_name, b.slug as company_slug');
         $this->db->from('users u');
         $this->db->join('payment p', 'p.user_id = u.id', 'LEFT');
@@ -1171,6 +1171,7 @@ class Admin_model extends CI_Model {
         }
 
         $this->db->where('u.role', 'user');
+        $this->db->where('u.agent_id', $agent_id);
         $this->db->order_by('u.id','DESC');
         $this->db->group_by('u.id');
         $this->db->query('SET SQL_BIG_SELECTS=1');

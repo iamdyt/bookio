@@ -11,6 +11,7 @@
                                 <th>S/N</th>
                                 <th>Title</th>
                                 <th>Link</th>
+                                <th>Location</th>
                                 <th>Manage</th>
                                 <!-- <th>Role</th>
                                 
@@ -23,7 +24,8 @@
                                 <tr> 
                                     <td> <?= ++$key ?> </td> 
                                     <td><?= $pg->title ?></td>  
-                                    <td> <?= $pg->link ?> </td>                                       
+                                    <td> <?= $pg->link ?> </td> 
+                                    <td><?= mb_convert_case($pg->location, MB_CASE_TITLE) ?>'s Dashboard </td>                                      
                                     <td>
                                         <?php 
                                             if (strlen ($pg->link) > 6) { 

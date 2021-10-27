@@ -81,6 +81,19 @@ class Common_model extends CI_Model {
         $query = $query->result();  
         return $query;
     }
+
+    //select pages by location
+    function select_pages_location($location)
+    {
+        $this->db->select();
+        $this->db->from('page_module');
+        $this->db->where('location', $location);
+        $this->db->order_by('id','DESC');
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    }
+
     // select function
     function select($table)
     {

@@ -11,7 +11,12 @@
                             <input type="text" required name="title" placeholder="Page Title" id="" class="form-control">
                             <label for="">Link</label> &emsp;<small>(Not Mnadatory)</small>
                             <input type="text" name="link" placeholder="e.g http://www.google.com" id="" class="form-control">
-
+                            <label for="">Location</label>
+                            <select name="location" required id="" class="form-control">
+                                <option value="">Choose a Location</option>
+                                <option value="agent">Agent's Dashboard</option>
+                                <option value="user">User's Dashboard </option>
+                            </select>
                             <label for="">Content</label>
                             <textarea name="content" id="summernote" class="form-control mt-2" cols="30" rows="5"></textarea>
                              <!-- csrf token -->

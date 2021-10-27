@@ -121,11 +121,36 @@
         <?php endif; ?>
 
         <?php if (is_agent()):  ?>
-          <li class="">
+            <li class="">
               <a class=" <?php if(isset($page_title) && $page_title == "Users"){echo "active";} ?>" href="<?php echo base_url('admin/users') ?>">
                 <div class="parent-icon"><i class="nav-icon lni lni-users"></i> </div><div class="menu-title"><?php echo trans('users') ?></div>
               </a>
             </li>
+
+            <li class="<?php if(isset($page) && $page == "Settings"){echo "mm-active";} ?>">
+            <a  onclick="toggleSetting(this)" class="caller has-arrow <?php if(isset($page) && $page == "Settings"){echo "active";} ?>"  aria-expanded="false">
+              <div class="parent-icon"><i class='nav-icon lni lni-files' ></i>
+              </div>
+              <div class="menu-title">Pages</div>
+            
+            </a>
+            <ul class="sp d-none">
+              <?php foreach(select_pages_location() as $ap) { ?>
+                
+                <li> 
+                  <?php 
+                    if ($ap->link == 'in-app'){
+                      $linky = base_url('admin/pages/single/').$ap->id;
+                      echo "<a href='$linky' target='_blank' class=''><i class='fas fa-caret-right'></i><span>".mb_convert_case($ap->title, MB_CASE_TITLE)."</span></a>";
+                    } else {
+                      echo "<a href='$ap->link' target='_blank' class=''><i class='fas fa-caret-right'></i><span>". mb_convert_case($ap->title, MB_CASE_TITLE)."</span></a>";
+                    }
+                  ?>
+                  
+                </li>
+              <?php } ?>
+            </ul>
+          </li>
           <?php endif; ?>
 
         <?php if (is_user()): ?>
@@ -141,6 +166,33 @@
             <div class="parent-icon"><i class="nav-icon lni lni-investment"></i></div> <div class="menu-title"><?php echo trans('subscription') ?></div>
             </a>
           </li>
+          <!-- Page creator pages -->
+          <li class="<?php if(isset($page) && $page == "Settings"){echo "mm-active";} ?>">
+            <a  onclick="togglePage(this)" class="callery has-arrow <?php if(isset($page) && $page == "Settings"){echo "active";} ?>"  aria-expanded="false">
+              <div class="parent-icon"><i class='nav-icon lni lni-files' ></i>
+              </div>
+              <div class="menu-title">Pages</div>
+            
+            </a>
+            <ul class="pg d-none">
+              <?php foreach(select_pages_location_user() as $ap) { ?>
+                
+                <li> 
+                  <?php 
+                    if ($ap->link == 'in-app'){
+                      $linky = base_url('admin/pages/single/').$ap->id;
+                      echo "<a href='$linky' target='_blank' class=''><i class='fas fa-caret-right'></i><span>".mb_convert_case($ap->title, MB_CASE_TITLE)."</span></a>";
+                    } else {
+                      echo "<a href='$ap->link' target='_blank' class=''><i class='fas fa-caret-right'></i><span>". mb_convert_case($ap->title, MB_CASE_TITLE)."</span></a>";
+                    }
+                  ?>
+                  
+                </li>
+              <?php } ?>
+            </ul>
+          </li>
+          <!-- end page creator pages -->
+    
 
           <?php if (check_my_payment_status() == TRUE): ?>
             <li class=" <?php if(isset($page) && $page == "Settings"){echo "menu-open";} ?>">

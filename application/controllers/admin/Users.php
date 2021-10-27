@@ -25,7 +25,7 @@ class Users extends Home_Controller {
         //initialize pagination
         $this->load->library('pagination');
         $config['base_url'] = base_url('admin/users/all_users/'.$type);
-        $total_row = $this->admin_model->get_all_users(1 , 0, 0, $type);
+        $total_row = $this->admin_model->get_all_users(1 , 0, 0, $type,user()->id);
         $config['total_rows'] = $total_row;
         $config['per_page'] = 15;
         $this->pagination->initialize($config);
@@ -40,7 +40,7 @@ class Users extends Home_Controller {
 
         $data['page_title'] = 'Users';
         $data['packages'] = $this->admin_model->select('package');
-        $data['users'] = $this->admin_model->get_all_users(0 , $config['per_page'], $page * $config['per_page'], $type);
+        $data['users'] = $this->admin_model->get_all_users(0 , $config['per_page'], $page * $config['per_page'], $type, user()->id);
         $data['main_content'] = $this->load->view('admin/users', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
@@ -141,6 +141,7 @@ class Users extends Home_Controller {
                             'thumb' => 'assets/images/no-photo-sm.png',
                             'password' => hash_password($this->input->post('password', true)),
                             'role' => 'user',
+                            'agent_id' => user()->id,
                             'user_type' => $user_type,
                             'trial_expire' => $trial_expire,
                             'status' => 1,

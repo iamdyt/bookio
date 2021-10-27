@@ -122,6 +122,19 @@
 		}
 
 	}
+
+	function togglePage(e){
+		if ($('.pg').hasClass('d-block')){
+			$('.pg').removeClass('d-block')
+			$('.pg').addClass('d-none')
+			$('.callery').attr('aria-expanded','false')
+		} else {
+			$('.pg').removeClass('d-none')
+			$('.pg').addClass('d-block')
+			$('.callery').attr('aria-expanded','true')
+		}
+
+	}
 	tinymce.init({
     selector: '#summernote',
     menubar: true

@@ -12,6 +12,13 @@
                             <label for="">Link</label> &emsp;<small>(Not Mnadatory)</small>
                             <input type="text" value="<?= $single->link ?>" name="link" placeholder="e.g http://www.google.com" id="" class="form-control">
 
+                            <label for="">Location</label>
+                            <select name="location" required id="" class="form-control">
+                                <option selected value="<?= $single->location?>"> <?= mb_convert_case($single->location, MB_CASE_TITLE) ?>'s Dashboard </option>
+                                <option value="agent">Agent's Dashboard</option>
+                                <option value="user">User's Dashboard </option>
+                            </select>
+
                             <label for="">Content</label>
                             <textarea name="content" id="summernote" class="form-control mt-2" cols="30" rows="5">
                                 <?= $single->content ?>
