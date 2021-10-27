@@ -19,6 +19,7 @@
 <!-- jQuery -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/jquery/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
@@ -46,10 +47,6 @@
 
 <!-- bs-custom-file-input -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- Summernote -->
-<script src="<?php echo base_url() ?>assets/js/tinymce/jquery.tinymce.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
-
 <!-- SYN-Started -->
 <script src="<?php echo base_url() ?>assets/admin/js/bootstrap.bundle.min.js"></script>
 	<!--plugins-->
@@ -135,17 +132,17 @@
 		}
 
 	}
-	tinymce.init({
-    selector: '#summernote',
-    menubar: true
-  });
-
 
 </script>
 <script>
 	$(document).ready( function () {
     $('#ditable').DataTable();
 } );
+</script>
+	
+<script>
+
+$('#summernote').trumbowyg();
 </script>
 </body>
 </html>

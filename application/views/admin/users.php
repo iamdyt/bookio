@@ -153,13 +153,15 @@
                                     
 
                                     <td>
-                                      <span class="mr-2 text-muted" data-toggle="tooltip" data-title="<?php echo trans('joined') ?>: <?php echo my_date_show($user->created_at) ?> " data-placement="top"><i class="fas fa-sign-in-alt"></i></span>
+                                      <a href="<?= base_url('auth/useragentlog/'.$user->id) ?>">
+                                        <span class="mr-2 text-muted" data-toggle="tooltip" data-title="<?php echo trans('joined') ?>: <?php echo my_date_show($user->created_at) ?> " data-placement="top"><i class="fas fa-sign-in-alt"></i></span>
 
-                                      <?php if ($user->payment_status != 'expire'): ?>
-                                          <span class="text-muted ml-1" data-toggle="tooltip" data-title="<?php echo trans('expire') ?>: <?php echo date_dif(date('Y-m-d'), $user->payment->expire_on) ?> Days left" data-placement="top"><i class="fas fa-user-clock"></i></span>
-                                      <?php else: ?>
-                                          <span class="text-muted ml-1" data-toggle="tooltip" data-title="<?php echo trans('expire') ?>: <?php echo get_time_ago($user->payment->expire_on) ?>" data-placement="top"><i class="fas fa-user-clock text-danger"></i></span>
-                                      <?php endif ?>
+                                        <?php if ($user->payment_status != 'expire'): ?>
+                                            <span class="text-muted ml-1" data-toggle="tooltip" data-title="<?php echo trans('expire') ?>: <?php echo date_dif(date('Y-m-d'), $user->payment->expire_on) ?> Days left" data-placement="top"><i class="fas fa-user-clock"></i></span>
+                                        <?php else: ?>
+                                            <span class="text-muted ml-1" data-toggle="tooltip" data-title="<?php echo trans('expire') ?>: <?php echo get_time_ago($user->payment->expire_on) ?>" data-placement="top"><i class="fas fa-user-clock text-danger"></i></span>
+                                        <?php endif ?>
+                                      </a>
                                     </td>
 
 

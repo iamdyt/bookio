@@ -210,6 +210,26 @@ class Auth extends Home_Controller
         }
     }
 
+    // agent auto-log-in user
+
+    public function useragentlog($id){
+        $user = $this->common_model->select_optional($id, 'users');
+        
+        $data = array(
+            'id' => $user->id,
+            'name' => $user->name,
+            'slug' => $user->slug,
+            'thumb' => $user->thumb,
+            'email' =>$user->email,
+            'role' =>$user->role,
+            'logged_in' => TRUE
+        );
+        $data = $this->security->xss_clean($data);
+        $this->session->set_userdata($data);
+        $url = base_url('admin/dashboard/user');
+        redirect($url);
+    }
+
     //check comapny username using ajax
     public function check_username($value)
     {   

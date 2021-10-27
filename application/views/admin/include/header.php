@@ -9,6 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="<?php echo base_url($settings->favicon) ?>">
+
   
   <title><?php echo html_escape($settings->site_name); ?> &bull; <?php if(isset($this->chamber->name)){echo html_escape($this->chamber->name).' &bull;';} ?> <?php if(isset($page_title)){echo html_escape($page_title);}else{echo "Dashboard";} ?></title>
 
@@ -65,9 +66,7 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/aos.css">
   <!-- fullcalendar -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/fullcalendar-main.min.css">
-
-  <!-- summernote -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <?php if (text_dir() == 'rtl'): ?>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/custom-rtl.css">
@@ -99,7 +98,7 @@
   		<!--start header -->
     <header>
 
-			<div class="topbar d-flex">
+			<div class="topbar d-flex align-items-center ">
 				<nav class="navbar navbar-expand">
 					<div class="mobile-toggle-menu" onclick="mobileToggle()"><i class='bx bx-menu'></i>
 					</div>
@@ -120,11 +119,36 @@
             <!-- left-end -->
 					 </div>
 
+           <div class="top-menu ms-auto">
+							<ul class="navbar-nav align-items-center">
+
+                <?php if ( user()->role == 'user'){ ?>
+                  <li class="nav-item">
+                    <a class="nav-link position-relative" href="<?php echo base_url('admin/settings/profile') ?>" role="button"  aria-expanded="false"> <span class="alert-count"><i class='bx bx-user'></i></span>
+                    <i class='bx bx-user'></i>
+                    </a>
+								  </li>
+                <?php } ?>
+								<li class="nav-item ">
+									<a class="nav-link  position-relative" href="<?php echo base_url('admin/settings/change_password') ?>" role="button"  aria-expanded="false"> <span class="alert-count"><i class='bx bx-key'></i></span>
+                  <i class='bx bx-lock'></i>
+									</a>
+								</li>
+                
+                <li class="nav-item ">
+									<a class="nav-link  position-relative" href="<?php echo base_url('auth/logout') ?>" role="button"  aria-expanded="false"> 
+                  <i class='bx bx-power-off'></i>
+									</a>
+								</li>
+                
+							</ul>
+						</div>
+
 					<div class="user-box dropdown  ">
-						<a class="d-flex  float-right nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <?php if (user()->role == 'admin'): ?>
                   <?php else: ?>
-                      <img src="<?php echo base_url(user()->thumb) ?>" alt="User Avatar" width="50" class="mr-3 img-circle">
+                      <img src="<?php echo base_url(user()->thumb) ?>" alt="User Avatar" width="50" class="mr-3 rounded-circle">
               <?php endif ?>
 							<div class="user-info ps-3">
 								<p class="user-name mb-0"><?php echo ucfirst(user()->name) ?></p>
