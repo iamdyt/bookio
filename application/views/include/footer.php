@@ -162,6 +162,17 @@
             $('#lost-form').addClass('d-block')
         }
     </script>
+<script>
+            function passwordToggle(){
+            inp = $('#toggle_password').attr('type')
+            console.log('inp')
+            if (inp == 'password'){
+                $('#toggle_password').attr('type', 'text')
+            } else{
+                $('#toggle_password').attr('type', 'password')
+            }
+        }
+</script>
 
 </body>
 
