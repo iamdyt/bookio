@@ -67,6 +67,55 @@ class Auth extends Home_Controller
         $this->load->view('index', $data);
     }
 
+    // new method to save agent
+    public function save_agent(){   
+        if($_POST){
+            $plan = $this->common_model->get_by_id($this->input->post('plan'), 'agent_plan');
+            $expire ="";
+            if($plan->bill_type == 'monthly'){
+                $expire.="+1 month";
+            }else{
+                $expire.="+12 month";
+            }
+            $message = urlencode("Agent Created Successfully, create a new agent or proceed to login");
+            $data = [
+                'name' => $this->input->post('name'),
+                'slug' => str_slug($this->input->post('name')),
+                'email' => $this->input->post('email'),
+                'user_name'=> $this->input->post('username'),
+                'password'=>hash_password($this->input->post('password')),
+                'role'=> 'agent',
+                'thumb' => 'assets/images/no-photo-sm.png',
+                'phone' => $this->input->post('phone'),
+                'user_type' => 'registered',
+                'status' => 1,
+                'paypal_mode' => 'live',
+                'paypal_payment' => 1,
+                'stripe_payment' => 1,
+                'email_verified' => 1,
+                'enable_appointment'=> 0,
+                'enable_sms_notify' => 0,
+                'enable_sms_alert' => 0,
+                'enable_rating' => 0,
+                'currency' => 'USD',
+                'created_at' => my_date_now()
+
+            ];
+            $data = $this->security->xss_clean($data);
+            $agent_id = $this->common_model->insert($data, 'users');
+            
+            $agent_payment = [
+                'agent_id' => $agent_id,
+                'plan_id' => $plan->id,
+                'amount' => $plan->price,
+                'status' => 'pending',
+                'created_at' => my_date_now(),
+                'expires_on' => date('Y-m-d', strtotime($expire))
+            ];
+            $this->common_model->insert($agent_payment, 'agent_payment');
+        }
+        redirect($_SERVER['HTTP_REFERER'].'/?message='.$message);
+    }
     // Premium Reg
 
     public function premiumreg()

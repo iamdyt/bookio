@@ -10,7 +10,11 @@
         <div class="row">
           <div class="col-lg-12">
             <!-- New user/Business -->
-            
+            <?php if($_GET['msg']){ ?>
+              <div class="alert alert-info">
+                <?= $_GET['msg']; ?>
+              </div>
+            <?php } ?>
             <div class="my-4">
               <a href="<?= base_url('admin/users/createbiz') ?>" class="btn btn-primary shadow-sm"> New User/Business &plus;</a>
             </div>

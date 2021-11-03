@@ -92,6 +92,12 @@ class Users extends Home_Controller {
     }
 
     public function createbiz(){
+        $message = urlencode("Limit exceeded, please contact the administrator for an upgrade");
+        $biz_with_agent = $this->common_model->get_biz_by_agent(user()->id, 'users');
+        $agent_plan = $this->common_model->get_agent_plan('agent_payment', user()->id);
+        if(count($biz_with_agent) == $agent_plan->permitted_biz){
+            redirect($_SERVER['HTTP_REFERER'].'/?msg='.$message);
+        }
         $data = array();
         $data['page_title'] = 'New User/Business';     
         $data['page'] = 'Business';

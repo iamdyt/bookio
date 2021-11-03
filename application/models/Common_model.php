@@ -25,6 +25,13 @@ class Common_model extends CI_Model {
     function update($action,$id,$table){
         $this->db->where('id',$id);
         $this->db->update($table,$action);
+        return;
+    }
+
+    function update_plan($action,$id,$table){
+        $this->db->where('agent_id',$id);
+        $this->db->update($table,$action);
+        return;
     }
 
     // delete function
@@ -81,6 +88,31 @@ class Common_model extends CI_Model {
         $query = $query->result();  
         return $query;
     }
+
+    function select_by_role_payment($table, $role)
+    {
+        $this->db->select('users.id as user_id, users.name,users.user_name, users.phone, users.email,users.role, apay.*, ap.*');
+        $this->db->from($table);
+        $this->db->where('users.role', $role);
+        $this->db->join('agent_payment apay','users.id = apay.agent_id');
+        $this->db->join('agent_plan ap', 'apay.plan_id = ap.id');
+        $this->db->order_by('users.id','DESC');
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    }
+
+    function select_plan_by_name($table, $name)
+    {
+        $this->db->select();
+        $this->db->from($table);
+        $this->db->where('plan_name', $name);
+        $this->db->order_by('id','ASC');
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    }
+
 
     //select pages by location
     function select_pages_location($location)
@@ -157,6 +189,28 @@ class Common_model extends CI_Model {
         $query = $query->row();  
         return $query;
     } 
+// get biz created by a particular agent
+    function get_biz_by_agent($id,$table)
+    {
+        $this->db->select();
+        $this->db->from($table);
+        $this->db->where('agent_id', $id);
+        $query = $this->db->get();
+        $query = $query->result();  
+        return $query;
+    } 
+
+    // get agent plan
+
+    function get_agent_plan($agent_payment_table, $agent_id){
+        $this->db->select();
+        $this->db->from($agent_payment_table);
+        $this->db->where('agent_id', $agent_id);
+        $this->db->join('agent_plan', "$agent_payment_table.plan_id = agent_plan.id");
+        $query = $this->db->get();
+        $query = $query->row();   
+        return $query;
+    }
 
     // select by id
     function get_by_uid($id,$table)
@@ -1011,7 +1065,8 @@ class Common_model extends CI_Model {
     }
 
     // delete agents
-    function delete_agent($agent_id, $table){
+    function delete_agent($agent_id, $table, $agent_payment_table){
+        $this->db->delete($agent_payment_table, array('agent_id'=>$agent_id));
         $this->db->delete($table, array('id' => $agent_id));
         return;
     }

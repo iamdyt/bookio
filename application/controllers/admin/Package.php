@@ -6,7 +6,7 @@ class Package extends Home_Controller {
     {
         parent::__construct();
         //check auth
-        if (!is_admin()) {
+        if (!is_admin() && !is_agent() ) {
             redirect(base_url());
         }
     }

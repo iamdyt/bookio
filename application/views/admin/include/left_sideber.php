@@ -48,10 +48,10 @@
 				</li>
 
         <li>
-					<a class="<?php if(isset($page_title) && $page_title == "Package"){echo "active";} ?>" href="<?php echo base_url('admin/package') ?>">
+					<a class="<?php if(isset($page_title) && $page_title == "Package"){echo "active";} ?>" href="<?php echo base_url('admin/agents/plans') ?>">
 						<div class="parent-icon"><i class='nav-icon lni lni-layers'></i>
 						</div>
-						<div class="menu-title"><?php echo trans('plans') ?></div>
+						<div class="menu-title">Plan Settings</div>
 					</a>
 				</li>
 
@@ -127,6 +127,13 @@
               </a>
             </li>
 
+            <li>
+              <a class="<?php if(isset($page_title) && $page_title == "Package"){echo "active";} ?>" href="<?php echo base_url('admin/package') ?>">
+                <div class="parent-icon"><i class='nav-icon lni lni-layers'></i>
+                </div>
+                <div class="menu-title"><?php echo trans('plans') ?></div>
+            </a>
+				</li>
             <?php foreach(select_pages_location() as $ap) { ?>
                 
                 <li> 
