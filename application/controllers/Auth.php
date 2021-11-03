@@ -77,7 +77,16 @@ class Auth extends Home_Controller
             }else{
                 $expire.="+12 month";
             }
+
+            $query = $this->db->get_where('users', array('email' => $this->input->post('email')));
+            $query = $query->row();
+            $user_exist = $query;
             $message = urlencode("Agent Created Successfully, create a new agent or proceed to login");
+            if(count($user_exist)>0){
+                $message = "";
+                $message = urlencode('Email existed already');
+                redirect($_SERVER['HTTP_REFERER'].'/?message='.$message);
+            }
             $data = [
                 'name' => $this->input->post('name'),
                 'slug' => str_slug($this->input->post('name')),

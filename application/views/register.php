@@ -77,7 +77,7 @@
                     <div class="col-12">
                         <div class="form-group">
                         <label class="text-dark" for="">Plan</label>
-                            <select name="plan" id="" class="form-control" >
+                            <select required name="plan" id="" class="form-control" >
                                 <option value="">Select a Plan</option>
                                 
                                     <option value="1"> Basic Plan </option>
