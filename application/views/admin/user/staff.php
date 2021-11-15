@@ -109,7 +109,7 @@
                                 <th>S/N</th>
                                 <th><?php echo trans('avatar') ?></th>
                                 <th><?php echo trans('name') ?></th>
-                                <th></th>
+                                <th>Status</th>
                                 <th><?php echo trans('action') ?></th>
                             </tr>
                         </thead>
@@ -125,9 +125,9 @@
                                 </td>
                                 <td>
                                   <?php if ($row->status == 1): ?>
-                                    <span class="badge badge-success"><i class="fas fa-check-circle"></i> <?php echo trans('active') ?></span>
+                                    <span class="badge bg-success"><i class="fas fa-check-circle"></i> <?php echo trans('active') ?></span>
                                   <?php else: ?>
-                                    <span class="badge badge-secondary"><i class="fas fa-eye-slash"></i> <?php echo trans('hidden') ?></span>
+                                    <span class="badge bg-secondary"><i class="fas fa-eye-slash"></i> <?php echo trans('hidden') ?></span>
                                   <?php endif ?>
                                 </td> 
                                 <td class="actions">

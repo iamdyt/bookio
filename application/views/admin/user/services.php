@@ -111,14 +111,14 @@
                                   <td><?php echo html_escape($row->name); ?></td>
                                   <td>
                                     <?php if ($row->status == 1): ?>
-                                      <span class="badge badge-success"><i class="fas fa-check-circle"></i> <?php echo trans('active') ?></span>
+                                      <span class="badge bg-success"><i class="fas fa-check-circle"></i> <?php echo trans('active') ?></span>
                                     <?php else: ?>
-                                      <span class="badge badge-secondary"><i class="fas fa-eye-slash"></i> <?php echo trans('hidden') ?></span>
+                                      <span class="badge bg-secondary"><i class="fas fa-eye-slash"></i> <?php echo trans('hidden') ?></span>
                                     <?php endif ?>
                                   </td> 
 
                                   <td>
-                                      <span class="badge badge-secondary"> <?php echo html_escape($row->orders); ?></span>
+                                      <span class="badge bg-secondary"> <?php echo html_escape($row->orders); ?></span>
                                   </td> 
 
                                   <td class="actions text-right">
@@ -146,7 +146,7 @@
         
         <!-- service area -->
         <?php if (isset($page_title) && $page_title != "Edit Category"): ?>
-          <div class="col-md-8 <?php if(strlen(settings()->ind_code) != 40){echo "d-none";} ?>">
+          <div class="col-md-8 ">
 
             <div class="card add_area <?php if(isset($page_title) && $page_title == "Edit"){echo "d-block";}else{echo "hide";} ?>">
                 <div class="card-header with-border bg-primary text-white">
@@ -378,17 +378,17 @@
                               <?php if (!empty($staffs)): ?>
                                 <div class="staffs-list">
                                   <?php foreach ($staffs as $staff): ?>
-                                    <img class="staff-avatar" src="<?php echo base_url(get_by_id($staff, 'staffs')->thumb) ?>" data-toggle="tooltip" data-placement="top" title="<?php echo get_by_id($staff, 'staffs')->name; ?>">
+                                    <img class="img-fluid rounded-circle" width="50%" src="<?php echo base_url(get_by_id($staff, 'staffs')->thumb) ?>" data-toggle="tooltip" data-placement="top" title="<?php echo get_by_id($staff, 'staffs')->name; ?>">
                                   <?php endforeach ?>  
                                 </div>
                               <?php endif ?>
                           </td>
                           <td>
                             <p class="p-0 m-0">
-                              <span class="badge bg-light"><i class="far fa-user"></i> <?php if($service->capacity == -1){echo "Unlimited";}else{echo html_escape($service->capacity).' person';} ?> </span>
+                              <span class="badge bg-primary"><i class="far fa-user"></i> <?php if($service->capacity == -1){echo "Unlimited";}else{echo html_escape($service->capacity).' person';} ?> </span>
                             </p>
                             <p class="p-0 m-0">
-                              <span class="badge bg-light"><i class="far fa-clock"></i> <?php if($service->duration == -1){echo "Unlimited";}else{echo html_escape($service->duration).' min';} ?></span>
+                              <span class="badge bg-primary"><i class="far fa-clock"></i> <?php if($service->duration == -1){echo "Unlimited";}else{echo html_escape($service->duration).' min';} ?></span>
                             </p>
                           </td>
 
